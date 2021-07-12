@@ -1,0 +1,5 @@
+:root{
+    --s1--color-primary-hue:40;
+    --s1--color-primary-saturation:90%;
+    
+    }

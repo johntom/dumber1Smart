@@ -1,0 +1,318 @@
+<!-- <h1>${message}</h1> -->
+<style>
+  .group:focus .group-focus\:flex {
+    display: flex;
+  }
+
+  .max-h-0 {
+    max-height: 0;
+  }
+
+  .group:focus .group-focus\:max-h-40 {
+    max-height: 10rem;
+  }
+
+  /* The styling below is custom in that we require the :checked Pseudo class, which Tailwind doesn't offer out of the box. However the styling (border color and box shadow) the below applies is native Tailwind. */
+  input:checked+label {
+    border-color: black;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+
+  .animation-overview .box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: var(--sl-color-primary-500);
+    margin: 1.5rem;
+  }
+
+  sl-switch::part(base) {
+    background: coral;
+    padding: 2em;
+    border-radius: 1em;
+  }
+
+  sl-switch::part(thumb) {
+    background: yellow;
+
+  }
+
+  sl-select {
+    --sl-input-border-radius-medium: 1;
+    --sl-border-radius-medium: 1;
+  }
+
+  .card-overview {
+    max-width: 600px;
+  }
+
+  .card-overview small {
+    color: var(--sl-color-gray-500);
+  }
+
+  .card-overview [slot="footer"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  sl-card {
+    --border-color: blue;
+    --border-radius: 1em;
+  }
+
+  h1 {
+    color: blue;
+    font-weight: bold;
+
+    font-size: 32px;
+  }
+</style>
+
+
+<div class="p-4">
+  <h1> Shoelace</h1>
+  <sl-button click.trigger="onClick()">Shoelace Click me check name</sl-button>
+
+  <sl-color-picker></sl-color-picker>
+
+  <sl-checkbox>Check me</sl-checkbox>
+
+  <sl-switch checked>Checked</sl-switch>
+  <br>
+  <sl-rating precision=".5"></sl-rating>
+
+  <sl-select placeholder="Select a few" multiple clearable>
+    <sl-menu-item value="option-1">Option 1</sl-menu-item>
+    <sl-menu-item value="option-2">Option 2</sl-menu-item>
+    <sl-menu-item value="option-3">Option 3</sl-menu-item>
+    <sl-menu-divider></sl-menu-divider>
+    <sl-menu-item value="option-4">Option 4</sl-menu-item>
+    <sl-menu-item value="option-5">Option 5</sl-menu-item>
+    <sl-menu-item value="option-6">Option 6</sl-menu-item>
+  </sl-select>
+</div>
+you selected ${slist}
+
+
+<sl-select label="Experience" help-text="Please tell us your skill level." clearable>
+  <sl-menu-item value="option-1">Novice</sl-menu-item>
+  <sl-menu-item value="option-2">Intermediate</sl-menu-item>
+  <sl-menu-item value="option-3">Advanced</sl-menu-item>
+</sl-select>
+
+<div class="p-6">
+  <!--  -->
+
+  <sl-card class="card-overview">
+    <img
+      src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+      slot="image" src="https://storage.googleapis.com/gtzdocs/DSC01121.jpg"
+      alt="A kitten sits patiently between a terracotta pot and decorative grasses.">
+    <strong>Mittens</strong><br>
+    This kitten is as cute as he is playful. Bring him home today!<br>
+    <small>6 weeks old</small>
+
+    <div slot="footer">
+      <sl-button type="primary" pill>More Info</sl-button>
+      <sl-rating></sl-rating>
+    </div>
+  </sl-card>
+
+  <sl-card class="card-overview">
+    <img src="https://storage.googleapis.com/gtzdocs/DSC01121.jpg" slot="image"
+      src="https://storage.googleapis.com/gtzdocs/DSC01121.jpg"
+      alt="A kitten sits patiently between a terracotta pot and decorative grasses.">
+    <!-- src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"  -->
+    <strong>Mittens</strong><br>
+    The Greenport Harbor supports Fireboat displays<br>
+    <small>6 weeks old</small>
+
+    <div slot="footer">
+      <sl-button type="primary" pill>More Info</sl-button>
+      <sl-rating></sl-rating>
+    </div>
+  </sl-card>
+
+</div>
+<div class="p-4">
+  <sl-textarea rows="4"></sl-textarea>
+
+  <sl-alert open>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    This is a standard alert. You can customize its content and even the icon.
+  </sl-alert>
+  <div>
+    <sl-button type="primary">Primary</sl-button>
+    <sl-button type="success">Success</sl-button>
+    <sl-button type="info">Info</sl-button>
+    <sl-button type="warning">Warning</sl-button>
+    <sl-button type="danger">Danger</sl-button>
+
+    <sl-alert open type="primary" duration="3000" closable>
+      <sl-icon slot="icon" name="info-circle"></sl-icon>
+      <strong>This is super informative</strong><br>
+      You can tell by how pretty the alert is.
+    </sl-alert>
+
+    <sl-alert type="success" duration="3000" closable>
+      <sl-icon slot="icon" name="check2-circle"></sl-icon>
+      <strong>Your changes have been saved</strong><br>
+      You can safely exit the app now.
+    </sl-alert>
+
+    <sl-alert type="info" duration="3000" closable>
+      <sl-icon slot="icon" name="gear"></sl-icon>
+      <strong>Your settings have been updated</strong><br>
+      Settings will take affect on next login.
+    </sl-alert>
+
+    <sl-alert type="warning" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+      <strong>Your session has ended</strong><br>
+      Please login again to continue.
+    </sl-alert>
+
+    <sl-alert type="danger" duration="3000" closable>
+      <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+      <strong>Your account has been deleted</strong><br>
+      We're very sorry to see you go!
+    </sl-alert>
+  </div>
+
+  <sl-drawer label="Drawer" placement="start" class="drawerl-placement-start">
+    This drawer slides in from the start.
+    <sl-button slot="footer" type="primary">Close</sl-button>
+  </sl-drawer>
+  <sl-button>OpenDrawer Left</sl-button>
+
+
+  <sl-drawer label="Drawer" placement="bottom" class="drawer-placement-bottom">
+    This drawer slides in from the bottom.
+    <div class="animation-overview">
+      <sl-animation name="bounce" duration="2000">
+        <div class="box"></div>
+      </sl-animation>
+      <sl-animation name="jello" duration="2000">
+        <div class="box"></div>
+      </sl-animation>
+      <sl-animation name="heartBeat" duration="2000">
+        <div class="box"></div>
+      </sl-animation>
+      <sl-animation name="flip" duration="2000">
+        <div class="box"></div>
+      </sl-animation>
+    </div>
+    <sl-button slot="footer" type="primary">Close</sl-button>
+  </sl-drawer>
+  <sl-button>Open Drawer Bottom (annimate)</sl-button>
+
+  <sl-drawer label="Drawer" placement="top" class="drawer-placement-top">
+    This drawer slides in from the top.
+
+    <sl-button slot="footer" type="primary">Close</sl-button>
+  </sl-drawer>
+  <sl-button>Open Drawer top</sl-button>
+
+
+
+  <sl-drawer label="Drawer" class="drawer-placement-overview">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <sl-button slot="footer" type="primary">Close</sl-button>
+  </sl-drawer>
+  <sl-button>Open Drawer right</sl-button>
+
+
+  <sl-radio-group label='Select an option '>
+
+    <sl-radio value="1">Option 1</sl-radio>
+    <sl-radio value="2">Option 2</sl-radio>
+    <sl-radio value="3">Option 3</sl-radio>
+  </sl-radio-group>
+
+  you selected ${selectedopt}
+  <br>
+  <!-- <sl-input></sl-input> -->
+  fn <sl-input id='nf' name="firstname" placeholder="Clearable" clearable value.bind="firstname"></sl-input>
+  <!-- ln <sl-input name="lastname" placeholder="Clearable" clearable value.bind="lastname"  ></sl-input> -->
+  last <sl-input id='nl' name="lastname" placeholder="Clearable" clearable value.bind="lastname"></sl-input>
+
+
+  <h1>form</h1>
+  <sl-form class="form-overview">
+    <sl-input name="fname" type="text" label="First Name"></sl-input>
+    <sl-input name="lname" type="text" label="Last Name"></sl-input>
+    <br>
+    <sl-select name="favorite" label="Select your favorite">
+      <sl-menu-item value="birds">Birds</sl-menu-item>
+      <sl-menu-item value="cats">Cats</sl-menu-item>
+      <sl-menu-item value="dogs">Dogs</sl-menu-item>
+    </sl-select>
+    <sl-select name="skill" label="Experience" help-text="Please tell us your skill level." clearable>
+      <sl-menu-item value="Novice">Novice</sl-menu-item>
+      <sl-menu-item value="Intermediate">Intermediate</sl-menu-item>
+      <sl-menu-item value="Advanced">Advanced</sl-menu-item>
+    </sl-select>
+    <sl-select name="tenant" class="a" label="tenant" help-text="Please tell us your tenant." clearable>
+    </sl-select>
+    <!-- <sl-select placeholder="Small" size="small" multiple></sl-select> medium large -->
+    <sl-select name="account" class="b" label="account" help-text="Please tell us your account." size="small" multiple
+      clearable>
+    </sl-select>
+    <br>
+    <sl-checkbox name="agree" value="yes">
+      I totally agree
+    </sl-checkbox>
+    <br><br>
+
+
+
+
+
+
+    <sl-button submit>Submit</sl-button>
+  </sl-form>
+  <div class="container grid-example">
+  <div class="row">
+    <div class="col-8">
+      outer, col-8
+      <div class="row">
+        <div class="col-3">inner, col-3</div>
+        <div class="col-9">inner, col-9</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-start">
+    <div class="col-4">1st</div>
+    <div class="col-4">2nd</div>
+  </div>
+  
+  <div class="row row-center">
+    <div class="col-4">1st</div>
+    <div class="col-4">2nd</div>
+  </div>
+  
+  <div class="row row-end">
+    <div class="col-4">1st</div>
+    <div class="col-4">2nd</div>
+  </div>
+  
+  <div class="row row-around">
+    <div class="col-4">1st</div>
+    <div class="col-4">2nd</div>
+  </div>
+  
+  <div class="row row-between">
+    <div class="col-4">1st</div>
+    <div class="col-4">2nd</div>
+  </div>
+
+</div>
+  <vaadin-combo-box style="width:500px" label="Fruit" allow-custom-value></vaadin-combo-box>
+  <p>Selected value:<span> </span></p>
+  ${firstname} ${lastname}
+  <sl-button click.trigger="onClick()">Shoelace Click me check name</sl-button>
+
+</div>
