@@ -4,11 +4,11 @@ This project is bootstrapped by [aurelia/new](https://github.com/aurelia/new).
 
 ## Start dev web server
 
-    npm start
+    yarn run start
 
 ## Build the app in production mode
 
-    npm run build
+    yarn run start
 
 It builds `dist/*bundle.[hash].js`, updates index.html with hashed js bundle file name. To deploy to production server, copy over both the generated `index.html` and all the `dist/*` files.
 
